@@ -1,6 +1,5 @@
 version: '3'
 services:
-
   petclinic-db.default.svc.cluster.local:
     build:
       context: .
@@ -12,4 +11,15 @@ services:
       - POSTGRES_USER=petclinic
       - POSTGRES_DB=petclinic
     volumes:
-      - ./tmp/data:/data
+      - ./data:/data
+
+  petclinic:
+    depends_on:
+    - petclinic-db.default.svc.cluster.local
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    ports:
+      - "8080:8080"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=postgres"
