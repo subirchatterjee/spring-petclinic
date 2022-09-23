@@ -30,20 +30,7 @@ pipeline {
                 }
             }
         }  
-      stage('Sonarqube') {
-        
-           steps {
-               dir("/var/lib/jenkins/workspace/MAVENBUILD") {
-                withSonarQubeEnv('sonarqube') {
-                      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-                      
-                }
-                 timeout(time: 10, unit: 'MINUTES') {
-                              waitForQualityGate abortPipeline: true
-        }
-      }
-    }
-  }
+    
         stage('Jfrog Upload') {
              steps {
                 dir("/var/lib/jenkins/workspace/MAVENBUILD/target") {
