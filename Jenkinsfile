@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    
+    environment {
+        
+        registry = "vaskar20222/petclinic"
+        registryCredential = 'vaskar20222'        
+    }
 
     stages {
         stage('MavenPackage') {
