@@ -13,7 +13,14 @@ pipeline {
         stage('DockerBuild') {
             steps {
                      
-                    sh 'docker build -t latest .'
+                    sh 'docker build -t sujoypathak2024/springpetclinic:latest .'
+                   }
+           }
+
+        stage('Imagepush') {
+            steps {
+                     
+                    sh 'docker push sujoypathak2024/springpetclinic:latest '
                    }
            }
 
