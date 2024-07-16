@@ -2,13 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('MavenPackage') {
             steps {
                    
                 sh './mvnw package'
 
             }
         }
+
+        stage('DockerBuild') {
+            steps {
+                 {
+                    sh 'docker build -t latest .'
+                }
+            }
+        }
+
     }
 }
 
