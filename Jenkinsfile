@@ -9,7 +9,7 @@ pipeline {
      }
   }
   steps {
-       sh './mvnw package'
+       sh 'sudo ./mvnw package'
        }
      }
    }
