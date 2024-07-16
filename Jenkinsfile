@@ -26,7 +26,7 @@ pipeline {
         stage('Imagepush') {
             steps {
                      
-                    sh 'docker push vaskar20222/myclinic1:latest '
+                    sh 'docker push vaskar20222/myclinic1:latest'
                    }
            }
 
