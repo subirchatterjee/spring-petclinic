@@ -12,14 +12,14 @@ pipeline {
 
         stage('DockerBuild') {
             steps {
-                 {
+                     {
                     sh 'docker build -t latest .'
-                }
-            }
-        }
+                     }
+                 }
+           }
 
-    }
+      }
    
-}
+   }
 
 
