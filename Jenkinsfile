@@ -20,7 +20,7 @@ pipeline {
         stage('Imagepush') {
             steps {
                      
-                    sh 'docker push vaskar20222/petclinic:latest'
+                    sh 'docker push vaskar20222/petclinic:latest '
                    }
            }
 
