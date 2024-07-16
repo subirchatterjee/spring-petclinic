@@ -1,16 +1,14 @@
-#!groovy
 pipeline {
-    agent none
-   stages {
-    stage('Maven Install') {
-      agent {
-       docker {
-         image 'maven:3.5.0'
-     }
-  }
-  steps {
-       sh 'sudo ./mvnw package'
-       }
-     }
-   }
- }
+    
+    agent any
+
+    stages {
+       
+        stage('Build') {
+            steps {
+                dir("/var/lib/jenkins/workspace/MAVENBUILD") {
+                         sh './mvnw package'
+
+                }
+            }
+        }
