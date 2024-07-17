@@ -19,14 +19,14 @@ pipeline {
         stage('DockerBuild') {
             steps {
                      
-                    sh 'docker build -t vaskar20222/myclinic1:latest .'
+                    sh 'docker build -t vaskar20222/springpetclinic:latest .'
                    }
            }
 
         stage('Imagepush') {
             steps {
                      
-                    sh 'docker push vaskar20222/myclinic1:latest'
+                    sh 'docker push vaskar20222/springpetclinic:latest '
                    }
            }
 
